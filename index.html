@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <style>
+      .container {
+        width: 300px;
+        margin: 0 auto;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="email"],
+      input[type="passsword"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      buttton {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .toggle-password:before {
+        content: "👁️";
+      }
+
+      .show-password:before {
+        content: "👁️";
+      }
+
+      .hide-password:before {
+        content: "👁️";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login Form</h2>
+      <form id="LoginForm">
+        <div class="fprm-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="passsword">Passsword</label>
+          <input type="password" id="password" name="password" required />
+          <span
+            class="toggle-password"
+            onclick="togglePasswordVisibility()"
+          ></span>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <script>
+      function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        var toggleButton = document.querySelector(".toggle-password");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          toggleButton.classList.add("show-password");
+          toggleButton.classList.remove("hide-password");
+        } else {
+          passwordInput.type = "password";
+          toggleButton.classList.add("hide-password");
+          toggleButton.classList.remove("show-password");
+        }
+      }
+    </script>
+  </body>
+</html>
